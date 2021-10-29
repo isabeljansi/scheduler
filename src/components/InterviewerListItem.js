@@ -17,11 +17,12 @@ export default function InterviewerListItem(props) {
   //   "interviewers__item--selected": props.selected
   // })
 
-  const interviewerClass = classNames(`interviewers__item, 
-    ${props.selected ? "interviewers__item--selected" : ""} 
-  `)
+  const interviewerClass = classNames(`interviewers__item`, {
+    "interviewers__item--selected": props.selected
+  }
+  )
 
-
+console.log("props.selected :" ,props.selected);
   return (
         <li 
           className={interviewerClass}

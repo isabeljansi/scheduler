@@ -5,6 +5,7 @@ import Button from "components/Button";
 
 
 export default function Form(props){
+  console.log("props form:" ,props)
 
   const {interviewers, onSave, onCancel } = props;
 
@@ -48,7 +49,7 @@ export default function Form(props){
           interviewers={interviewers}
           interviewer={interviewer}
           setInterviewer={setInterviewer}
- 
+
         />
       </section>
       <section className="appointment__card-right">
