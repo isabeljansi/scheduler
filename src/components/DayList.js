@@ -9,7 +9,7 @@ export default function DayList(props){
   const parsedDays = days.map(day => <DayListItem 
     key={day.id} 
     name={day.name} 
-    setDay={(event) => props.onChange(day.name)} 
+    setDay={(event) => props.setDay(day.name)} 
     spots={day.spots} 
     selected={day.name === props.value}
     />
