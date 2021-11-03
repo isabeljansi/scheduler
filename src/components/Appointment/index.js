@@ -5,11 +5,13 @@ import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 import Status from "./Status";
+import Confirm from "./Confirm";
+import Error from "./Error";
 
 import useVisualMode from "hooks/useVisualMode";
 
 import './styles.scss';
-import Confirm from "./Confirm";
+
 
 
 
@@ -18,6 +20,7 @@ export default function Appointment(props){
 
   const { id, time, interview, interviewers, bookInterview, student, cancelInterview} = props
 
+
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -25,6 +28,8 @@ export default function Appointment(props){
   const DELETING = "DELETING";
   const CONFIRM = "CONFIRM";
   const EDIT = "EDIT";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
 
   // Set the interviewers prop to an empty array. We will implement this properly in a future activity.
   // const interviewers = [];
@@ -41,14 +46,14 @@ export default function Appointment(props){
     transition(SAVING);
     bookInterview(id, interview)
     .then(() => transition(SHOW))
+    .catch(error => transition(ERROR_SAVE, true))
   }
 
   function cancel() {
-
-    console.log("cancel func: " ,id);
-    transition(DELETING);
+    transition(DELETING, true);
     cancelInterview(id)
     .then(() => transition(EMPTY))
+    .catch(error => transition(ERROR_DELETE, true))
   }
 
   return(
@@ -62,6 +67,8 @@ export default function Appointment(props){
       {mode === DELETING && (<Status message="Deleting" />)}
       {mode === CONFIRM && (<Confirm message="Are you sure?" onCancel={() => back} onConfirm={cancel} />)}
       {mode === EDIT && <Form student={props.interview.student} interviewer={props.interview.interviewer.id} interviewers={props.interviewers} onCancel={() => transition(SHOW)} onSave={save} />}
+      {mode === ERROR_SAVE && <Error message="Error saving" onClose={back}/>}
+      {mode === ERROR_DELETE && <Error message= 'Error deleting' onClose={() => transition(SHOW)}/>}
     </article>
 
   
