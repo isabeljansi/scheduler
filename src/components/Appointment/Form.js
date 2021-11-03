@@ -57,7 +57,7 @@ export default function Form(props){
           
           <Button danger onClick={(event) => cancel()}>Cancel</Button>
           
-          <Button danger onClick={onSave}>Save</Button>
+          <Button danger onClick={() => onSave(student, interviewer)}>Save</Button>
           
         </section>
       </section>
