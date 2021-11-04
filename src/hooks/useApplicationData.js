@@ -6,8 +6,7 @@ export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {},
-    interviewers: {}
+    appointments: {}
   });
 
   const setDay = day => setState({ ...state, day }); //used to update DayList
@@ -25,9 +24,8 @@ export default function useApplicationData() {
         appointments: all[1].data,
         interviewers: all[2].data,
       }));
-    });
+    }).catch((error) => {})
   }, []);
-
 
   function bookInterview(id, interview) {
     console.log("id and interview from useapplicationdata: ", id, interview);
@@ -62,8 +60,7 @@ export default function useApplicationData() {
         ...state,
         appointments,
       })
-    }
-    )
+    })
   }
 
   return { state, setDay, bookInterview, cancelInterview };

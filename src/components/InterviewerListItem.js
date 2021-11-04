@@ -22,7 +22,6 @@ export default function InterviewerListItem(props) {
   }
   )
 
-console.log("props.selected :" ,props.selected);
   return (
         <li 
           className={interviewerClass}
