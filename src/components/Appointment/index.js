@@ -65,7 +65,7 @@ export default function Appointment(props){
       {mode === CREATE && (<Form interviewers={interviewers} onSave={save} onCancel={back}/>)}
       {mode === SAVING && (<Status message="Saving" />)}
       {mode === DELETING && (<Status message="Deleting" />)}
-      {mode === CONFIRM && (<Confirm message="Are you sure?" onCancel={() => back} onConfirm={cancel} />)}
+      {mode === CONFIRM && (<Confirm message="Are you sure?" onCancel={back} onConfirm={cancel} />)}
       {mode === EDIT && <Form student={props.interview.student} interviewer={props.interview.interviewer.id} interviewers={props.interviewers} onCancel={() => transition(SHOW)} onSave={save} />}
       {mode === ERROR_SAVE && <Error message="Error saving" onClose={back}/>}
       {mode === ERROR_DELETE && <Error message= 'Error deleting' onClose={() => transition(SHOW)}/>}

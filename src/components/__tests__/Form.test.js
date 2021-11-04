@@ -19,7 +19,6 @@ describe("Form", () => {
     const { getByPlaceholderText } = render(
       <Form interviewers={interviewers} />
     );
-    // console.log("FORM TEST: ", expect(getByPlaceholderText("Enter Student Name")));
     expect(getByPlaceholderText("Enter Student Name")).toHaveValue("");
   });
 
