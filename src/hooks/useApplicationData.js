@@ -11,6 +11,18 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day }); //used to update DayList
 
+  const updateSpots = (appointments) => {
+    return state.days.map(day => {
+      let spots = 0;
+      for (let id of day.appointments) {
+        if (!appointments[id].interview) {
+          spots++;
+        }
+      }
+      return {...day, spots};
+    })
+  };
+
   useEffect(() => {
     Promise.all([
       axios.get("/api/days"),
@@ -39,7 +51,8 @@ export default function useApplicationData() {
     };
     setState({
       ...state,
-      appointments
+      appointments,
+      days: updateSpots(appointments)
     });
     return axios.put(`/api/appointments/${id}`, {interview})
   }
@@ -59,6 +72,7 @@ export default function useApplicationData() {
       setState({
         ...state,
         appointments,
+        days: updateSpots(appointments)
       })
     })
   }
