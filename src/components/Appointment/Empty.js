@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default function Empty(props){
 
   const { onAdd } = props;
@@ -16,4 +15,3 @@ export default function Empty(props){
     </main>
   )
 }
-

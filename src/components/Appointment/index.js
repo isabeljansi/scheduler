@@ -12,14 +12,9 @@ import useVisualMode from "hooks/useVisualMode";
 
 import './styles.scss';
 
-
-
-
-
 export default function Appointment(props){
 
   const { id, time, interview, interviewers, bookInterview, student, cancelInterview} = props
-
 
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
@@ -31,8 +26,6 @@ export default function Appointment(props){
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
 
-  // Set the interviewers prop to an empty array. We will implement this properly in a future activity.
-  // const interviewers = [];
 
   const { mode, transition, back } = useVisualMode(
     interview ? SHOW : EMPTY
@@ -74,7 +67,3 @@ export default function Appointment(props){
   
   )
 }
-
-
-
-
