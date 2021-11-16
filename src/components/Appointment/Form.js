@@ -19,7 +19,10 @@ export default function Form(props){
       setError("Student name cannot be blank");
       return;
     }
-  
+    if(interviewer === null){
+      setError("Select an interviewer");
+      return;
+    }
     props.onSave(student, interviewer);
   }
 
@@ -69,7 +72,7 @@ export default function Form(props){
           
           <Button danger onClick={(event) => cancel()}>Cancel</Button>
           
-          <Button danger onClick={validate}>Save</Button>
+          <Button confirm onClick={validate} >Save</Button>
           
         </section>
       </section>
