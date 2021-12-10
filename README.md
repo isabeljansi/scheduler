@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-A single page application project that allows users to book/cancel/edit appointments using React. Combines a concise API with a Web Socket Server to build a real-time experience. 
+A single page application project built with React JS that allows users to book/cancel/edit appointments using React. Combines a concise API with a Web Socket Server to build a real-time experience. 
 
 ## Final Product
 
