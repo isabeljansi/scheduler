@@ -4,9 +4,9 @@ A single page application project built with React JS that allows users to book/
 
 ## Tech Stack Used
 
-React JS
-Axios
-PostgreSQL
+React JS,
+Axios,
+PostgreSQL,
 Web Socket Server
 
 ## Final Product
